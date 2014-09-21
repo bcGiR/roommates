@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('connect.php');
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
@@ -8,9 +9,13 @@
         $result = mysql_query($query) or die(mysql_error());
         $count = mysql_num_rows($result);
         if ($count == 1){
+            $query_active = "UPDATE `user` SET active=1 WHERE username='$username'";
+            $result_active = mysql_query($query_active) or die(mysql_error());
             $_SESSION['username'] = $username;
             $message = "Welcome $username";
             echo "<script type='text/javascript'>alert('$message');</script>";
+            header("Location: http://localhost/mates/index.php");
+            die();
         }else{
             $message = "Invalid Login Credentials";
             echo "<script type='text/javascript'>alert('$message');</script>";
