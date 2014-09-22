@@ -1,13 +1,4 @@
-<?php
-session_start();
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-} else {
-    header('Location: http://localhost/mates/');
-    exit();
-}
-?>
-<!DOCTYPE html>
+<?php require('auth.php') ?>
 <html>
 <head>
 <meta charset="utf-8" />
