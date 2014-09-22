@@ -1,9 +1,5 @@
 <?php
-   // session_start();
-   // if (isset($_SESSION['username']) {
-   //     header("Location: http://localhost/mates/index.php");
-   //     die();
-   // }
+    session_start();
     require('connect.php');
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email']) &&
         $_POST['password'] == $_POST['repeat_password']) {
