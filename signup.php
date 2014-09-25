@@ -14,28 +14,13 @@
                 echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
+    include_once('header.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Roommate Harmony: Log in</title>
-</head>
-<body>
-<header>
-<h1>Welcome!</h1>
-</header>
-<div id="content">
 <form action="" method="post">
     Username: <input name="username" type="text"><br>
     Email: <input name="email" type="text"><br>
-    Password: <input name="password" type="text"><br>
-    Repeat Password: <input name="repeat_password" type="text"><br>
+    Password: <input name="password" type="password"><br>
+    Repeat Password: <input name="repeat_password" type="password"><br>
 <input type="submit" value="Sign Up">
 </form>
-</div>
-<footer>
-<p>A Brendan Crawford webapp, copyright 2014</p>
-</footer>
-</body>
-</html>
+<?php include_once('footer.php'); ?>

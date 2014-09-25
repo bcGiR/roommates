@@ -1,19 +1,7 @@
-<?php require('auth.php') ?>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Roommate Harmony: Home</title>
-</head>
-<body>
-<header>
-<h1>Roommate Harmony: Home</h1>
-</header>
-<div id="content">
-<h2>Welcome to the members page, <?php echo $username?></h2>
+<?php require('auth.php');
+include_once('header.php');
+?>
+<a href='http://localhost/mates/create.php'>Create a house</a><br>
+<a href='http://localhost/mates/status.php'>View my house</a><br>
 <a href='http://localhost/mates/logout.php'>Log out</a>
-</div>
-<footer>
-<p>A Brendan Crawford webapp, copyright 2014</p>
-</footer>
-</body>
-</html>
+<?php include_once('footer.php'); ?>
