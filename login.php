@@ -32,4 +32,4 @@
     Password: <input name="password" type="password"><br>
     <input type="submit" value="Log In">
 </form>
-<?php include_once('footer.php'); ?>
+<?php include_once('footer.php');
