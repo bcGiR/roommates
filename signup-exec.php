@@ -3,7 +3,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     $_POST['password'] == $_POST['repeat_password']) {
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $query = "INSERT INTO `user` (username, password, email) VALUES ('$username', '$password', '$email')";
         $result = mysql_query($query);
