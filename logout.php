@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('connect.php');
-require('logout.php');
+require('logout-exec.php');
 include_once('header.php');
 ?>
 <h2>You have logged out successfully</h2>
