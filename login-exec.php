@@ -12,7 +12,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if (password_verify($_POST['password'], $row[3])) {
             session_regenerate_id();
             $_SESSION['username'] = $username;
-            $_SESSION['password'] = $row[3];
             session_write_close();
             $message = "Welcome $username";
             echo "<script type='text/javascript'>alert('$message'); window.location.href = 'http://localhost/mates/home.php';</script>";
