@@ -1,7 +1,12 @@
 <?php
 require('dbadapter.php');
-$result = createUsersTable();
+createUsersTable();
+createHousesTable();
+createRoomsTable();
+createBillsTable();
+createDatesTable();
+createPurchasesTable();
 include_once('header.php');
 ?>
-    <p>Users table created successfully.</p>
+    <p>Tables created successfully.</p>
 <?php include_once('footer.php'); ?>
