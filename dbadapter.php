@@ -1,6 +1,10 @@
 <?php
 require('connect.php');
 
+/*********************
+ * CREATE THE TABLES *
+ *********************/
+
 // create the users table
 function createUsersTable() {
     $query = "CREATE TABLE `users`(".
@@ -72,4 +76,15 @@ function createPurchasesTable() {
         "PRIMARY KEY (`purchase-id`))";
     mysql_query($query) or die(mysql_error());
 }
+
+/******************
+ * CREATE ENTRIES *
+ ******************/
+
+// create a new user
+function createUser($username,$password,$email) {
+    $query = "INSERT INTO `users` (username, password, email) VALUES ('$username', '$password', '$email')";
+    return mysql_query($query) or die(mysql_error());
+}
+
 ?>

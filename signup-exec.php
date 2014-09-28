@@ -1,12 +1,12 @@
 <?php
+require('dbadapter.php');
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email']) &&
     $_POST['password'] == $_POST['repeat_password']) {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO `user` (username, password, email) VALUES ('$username', '$password', '$email')";
-        $result = mysql_query($query);
+        $result = createUser($username,$password,$email);
         if ($result) {
             $message = "User Created Successfully";
             echo "<script type='text/javascript'>alert('$message'); window.location.href = 'http://localhost/mates/login.php'</script>";
