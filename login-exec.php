@@ -6,8 +6,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $result = getUserByName($username);
     $count = mysql_num_rows($result);
     if ($count == 1){
-        $query_active = "UPDATE `users` SET active=1 WHERE username='$username'";
-        $result_active = mysql_query($query_active) or die(mysql_error());
+        $result_active = userActive($username);
         $row = mysql_fetch_row($result);
         if (password_verify($_POST['password'], $row[3])) {
             session_regenerate_id();

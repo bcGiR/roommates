@@ -98,5 +98,19 @@ function getUserByName($username) {
     return $result;
 }
 
+/*****************
+ * UPDATE VALUES *
+ *****************/
 
+// activate user
+function userActive($username) {
+    $query = "UPDATE `users` SET active=1 WHERE username='$username'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// deactivate user
+function userInactive($username) {
+    $query = "UPDATE `users` SET active=1 WHERE username='$username'";
+    return mysql_query($query) or die(mysql_error());
+}
 ?>
