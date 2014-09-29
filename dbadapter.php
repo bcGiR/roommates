@@ -87,4 +87,16 @@ function createUser($username,$password,$email) {
     return mysql_query($query) or die(mysql_error());
 }
 
+/**************
+ * GET VALUES *
+ **************/
+
+// get user by username
+function getUserByName($username) {
+    $query = "SELECT * FROM `users` WHERE username='$username'";
+    $result = mysql_query($query) or die(mysql_error());
+    return $result;
+}
+
+
 ?>
