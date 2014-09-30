@@ -1,6 +1,18 @@
 <?php
 require('dbadapter.php');
-if (isset($_POST['username']) && isset($_POST['password'])) {
+$verified = true;
+$error = "Login Failed.\n";
+
+if (!isset($_POST['username'])) {
+    $verified = false;
+    $error .= "Username required.\n";
+}
+if (!isset($_POST['password'])) {
+    $verified = false;
+    $error .= "Password required.\n";
+}
+
+if ($verified) {
     $username = $_POST['username'];
 
     $result = getUserByName($username);
@@ -22,5 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $message = "$result";
         echo "<script type='text/javascript'>alert('$message'); window.location.href = 'http://localhost/mates/signup.php';</script>";
     }
+} else {
+    echo "<script type='text/javascript'>alert('$error');</script>";
 }
 ?>

@@ -1,7 +1,22 @@
 <?php
 require('dbadapter.php');
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email']) &&
-    $_POST['password'] == $_POST['repeat_password']) {
+$verified = true;
+$error = "Sign up failed.\n";
+
+if (!isset($_POST['username'])) {
+    $verified = false;
+    $error .= "Username required.\n";
+}
+if (!($_POST['password'] == $_POST['repeat_password'])) {
+    $verified = false;
+    $error .= "Passwords must match\n";
+}
+if (!isset($_POST['email'])) {
+    $verified = false;
+    $error .= "Email required.\n";
+}
+
+if ($verified) {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -14,5 +29,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
             $message = "Sorry, there was an unexpected error.\nPlease try again.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-    }
+} else {
+    echo "<script type='text/javascript'>alert('$error');</script>";
+}
 ?>
