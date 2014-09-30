@@ -3,15 +3,15 @@ require('dbadapter.php');
 $verified = true;
 $error = "House creation failed.\n";
 
-if (!isset($_POST['house_name'])) {
+if ($_POST['house_name'] === "") {
     $verified = false;
     $error .= "House name required.\n";
 }
-if (!isset($_POST['rent'])) {
+if ($_POST['rent'] === "") {
     $verified = false;
     $error .= "Rent required.\n";
 }
-if (!($_POST['house_password'] == $_POST['repeat_house_password'])) {
+if (!($_POST['house_password'] === $_POST['repeat_house_password'])) {
     $verified = false;
     $error .= "Passwords must match.\n";
 }

@@ -3,15 +3,15 @@ require('dbadapter.php');
 $verified = true;
 $error = "Sign up failed.\n";
 
-if (!isset($_POST['username'])) {
+if ($_POST['username'] === "") {
     $verified = false;
     $error .= "Username required.\n";
 }
-if (!($_POST['password'] == $_POST['repeat_password'])) {
+if (!($_POST['password'] === $_POST['repeat_password'])) {
     $verified = false;
     $error .= "Passwords must match\n";
 }
-if (!isset($_POST['email'])) {
+if ($_POST['email'] === "") {
     $verified = false;
     $error .= "Email required.\n";
 }

@@ -3,11 +3,11 @@ require('dbadapter.php');
 $verified = true;
 $error = "Login Failed.\n";
 
-if (!isset($_POST['username'])) {
+if ($_POST['username'] === "") {
     $verified = false;
     $error .= "Username required.\n";
 }
-if (!isset($_POST['password'])) {
+if ($_POST['password'] === "") {
     $verified = false;
     $error .= "Password required.\n";
 }
