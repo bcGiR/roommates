@@ -145,7 +145,27 @@ function userInactive($username) {
     return mysql_query($query) or die(mysql_error());
 }
 
-/*******************
- * DESTROY METHODS *
- *******************/
+/******************
+ * DELETE METHODS *
+ ******************/
+
+// delete user by name
+function deleteUserByName($username) {
+    $query = "DELETE FROM `users` WHERE username='$username'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// delete house by name
+function deleteHouseByName($housename) {
+    $query = "DELETE FROM `houses` WHERE housename='$housename'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// delete bill by name
+function deleteBillByName($billname) {
+    $query = "DELETE FROM `bills` WHERE billname='$billname'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+
 ?>
