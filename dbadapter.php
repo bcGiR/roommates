@@ -1,9 +1,9 @@
 <?php
 require('connect.php');
 
-/*********************
- * CREATE THE TABLES *
- *********************/
+/************************
+ * CREATE TABLE METHODS *
+ ************************/
 
 // create the users table
 function createUsersTable() {
@@ -79,7 +79,7 @@ function createPurchasesTable() {
 }
 
 /******************
- * CREATE ENTRIES *
+ * CREATE METHODS *
  ******************/
 
 // create a new user
@@ -94,9 +94,33 @@ function createHouse($housename,$password,$rent) {
     return mysql_query($query) or die(mysql_error());
 }
 
-/**************
- * GET VALUES *
- **************/
+// create a new bill
+function createBill($billname,$amount,$date,$houseId) {
+    $query = "INSERT INTO `bills` (billname, amount, date, house_id) VALUES ('$billname', '$amount', '$date', '$houseId')";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// create a new date
+function createDate($type,$date,$houseId) {
+    $query = "INSERT INTO `dates` (type, date, house_id) VALUES ('$type', '$date', '$houseId')";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// create a new purchase
+function createPurchase($type, $amount, $date, $houseId, $userId) {
+    $query = "INSERT INTO `purchases` (type, amount, date, house_id, user_id) VALUES ('$type', '$amount', '$date', '$houseId', '$userId')";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// create a new room
+function createRoom($size,$houseId,$userId) {
+    $query = "INSERT INTO `rooms` (size, house_id, user_id) VALUES ('$size', '$houseId', '$userId')";
+    return mysql_query($query) or die(mysql_error());
+}
+
+/****************
+ * READ METHODS *
+ ****************/
 
 // get user by username
 function getUserByName($username) {
@@ -105,9 +129,9 @@ function getUserByName($username) {
     return $result;
 }
 
-/*****************
- * UPDATE VALUES *
- *****************/
+/******************
+ * UPDATE METHODS *
+ ******************/
 
 // activate user
 function userActive($username) {
@@ -121,4 +145,7 @@ function userInactive($username) {
     return mysql_query($query) or die(mysql_error());
 }
 
+/*******************
+ * DESTROY METHODS *
+ *******************/
 ?>
