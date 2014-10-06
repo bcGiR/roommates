@@ -155,17 +155,17 @@ function deleteUserByName($username) {
     return mysql_query($query) or die(mysql_error());
 }
 
-// delete house by name
-function deleteHouseByName($housename) {
-    $query = "DELETE FROM `houses` WHERE housename='$housename'";
+// delete house by id
+function deleteHouseByName($houseId) {
+    $query = "DELETE FROM `houses` WHERE house_id='$houseId'";
     return mysql_query($query) or die(mysql_error());
 }
 
-// delete bill by name
-function deleteBillByName($billname) {
-    $query = "DELETE FROM `bills` WHERE billname='$billname'";
+// delete bill by id
+function deleteBillByName($billId) {
+    $query = "DELETE FROM `bills` WHERE bill_id='$billId'";
     return mysql_query($query) or die(mysql_error());
 }
 
-
+//
 ?>
