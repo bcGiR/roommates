@@ -48,7 +48,7 @@ function createBillsTable() {
         "`bill_id` int(11) NOT NULL AUTO_INCREMENT,".
         "`billname` varchar(255) NOT NULL,".
         "`amount` int(11) NOT NULL,".
-        "`date` date,".
+        "`dom` int(11) NOT NULL,".
         "`house_id` int(11) NOT NULL,".
         "PRIMARY KEY (`bill_id`))";
     mysql_query($query) or die(mysql_error());
@@ -59,7 +59,7 @@ function createDatesTable() {
     $query = "CREATE TABLE `dates`(".
         "`date_id` int(11) NOT NULL AUTO_INCREMENT,".
         "`type` varchar(255) NOT NULL,".
-        "`date` date NOT NULL,".
+        "`dom` int(11) NOT NULL,".
         "`house_id` int(11) NOT NULL,".
         "PRIMARY KEY (`date_id`))";
     mysql_query($query) or die(mysql_error());
