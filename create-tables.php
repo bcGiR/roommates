@@ -1,5 +1,6 @@
 <?php
 require('dbadapter.php');
+require_once('admin-auth.php');
 createUsersTable();
 createHousesTable();
 createRoomsTable();
