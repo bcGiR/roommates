@@ -156,16 +156,33 @@ function deleteUserByName($username) {
 }
 
 // delete house by id
-function deleteHouseByName($houseId) {
+function deleteHouseById($houseId) {
     $query = "DELETE FROM `houses` WHERE house_id='$houseId'";
     return mysql_query($query) or die(mysql_error());
 }
 
 // delete bill by id
-function deleteBillByName($billId) {
+function deleteBillById($billId) {
     $query = "DELETE FROM `bills` WHERE bill_id='$billId'";
     return mysql_query($query) or die(mysql_error());
 }
 
-//
+// delete date by id
+function deleteDateById($dateId) {
+    $query = "DELETE FROM `dates` WHERE date_id='$dateId'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// delete purchase by id
+function deletePurchaseById($purchaseId) {
+    $query = "DELETE FROM `purchases` WHERE purchase_id='$purchaseId'";
+    return mysql_query($query) or die(mysql_error());
+}
+
+// delete room by id
+function deleteRoomById($roomId) {
+    $query = "DELETE FROM `rooms` WHERE room_id='$roomId'";
+    return mysql_query($query) or die(mysql_error());
+}
+
 ?>
