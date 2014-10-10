@@ -95,14 +95,14 @@ function createHouse($housename,$password,$rent) {
 }
 
 // create a new bill
-function createBill($billname,$amount,$date,$houseId) {
-    $query = "INSERT INTO `bills` (billname, amount, date, house_id) VALUES ('$billname', '$amount', '$date', '$houseId')";
+function createBill($billname,$amount,$dom,$houseId) {
+    $query = "INSERT INTO `bills` (billname, amount, dom, house_id) VALUES ('$billname', '$amount', '$dom', '$houseId')";
     return mysql_query($query) or die(mysql_error());
 }
 
 // create a new date
-function createDate($type,$date,$houseId) {
-    $query = "INSERT INTO `dates` (type, date, house_id) VALUES ('$type', '$date', '$houseId')";
+function createDate($type,$dom,$houseId) {
+    $query = "INSERT INTO `dates` (type, dom, house_id) VALUES ('$type', '$dom', '$houseId')";
     return mysql_query($query) or die(mysql_error());
 }
 
