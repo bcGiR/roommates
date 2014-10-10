@@ -1,7 +1,14 @@
 <?php
 require('dbconfig.php');
-echo "<script type='text/javascript'>var pass;pass=prompt('Enter admin password', '');".
-    "if (pass != '$adminPassword') {".
-    "window.location.href = 'http://localhost/mates/denied.php';".
-    "}</script>";
+
+$user = $_SERVER['PHP_AUTH_USER'];
+$pass = $_SERVER['PHP_AUTH_PW'];
+
+$validated = ($pass == $adminPassword);
+
+if (!$validated) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Unauthorized");
+} 
 ?>
