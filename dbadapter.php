@@ -129,6 +129,12 @@ function getUserByName($username) {
     return $result;
 }
 
+// get house by id
+function getHouseByID($houseId) {
+    $query = "SELECT * FROM `houses` WHERE house_id='$houseId'";
+    $result = mysql_query($query) or die(mysql_error());
+}
+
 /******************
  * UPDATE METHODS *
  ******************/

@@ -1,27 +1,13 @@
 <?php
 require('dbadapter.php');
+require('validate.php');
+
 if (isset($_POST['username'])) {
-    $verified = true;
-    $error = "Sign up failed. ";
+    // checks for errors in input fields
+    $error = validateUser();
 
-    if ($_POST['username'] === "") {
-        $verified = false;
-        $error .= "Username required. ";
-    }
-    if ($_POST['password'] === "") {
-        $verified = false;
-        $error .= "Password required. ";
-    }
-    if (!($_POST['password'] === $_POST['repeat_password'])) {
-        $verified = false;
-        $error .= "Passwords must match ";
-    }
-    if ($_POST['email'] === "") {
-        $verified = false;
-        $error .= "Email required. ";
-    }
-
-    if ($verified) {
+    // add user to database
+    if (!$error) {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
