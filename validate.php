@@ -1,6 +1,6 @@
 <?php
 // validates user fields, if error returns a message
-function validateUser() {
+function validateCreateUser() {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $repeat = $_POST['repeat_password'];
@@ -37,5 +37,34 @@ function validateUser() {
 }
 
 // validates house fields, if error returns a message
+function validateCreateHouse() {
+    $housename = $_POST['house_name'];
+    $rent = $_POST['rent'];
+    $housepass = $_POST['house_password'];
+    $repeat = $_POST['repeat_house_password'];
 
+    $err = false;
+    $msg = 'House creation failed.\n';
+
+    if (strlen($housename) < 4) {
+        $err = true;
+        $msg .= 'House name must be at least 4 characters long.\n';
+    }
+    if (strlen($housepass) < 6) {
+        $err = true;
+        $msg .= 'House password must be at least 6 characters long.\n';
+    }
+    if (!($housepass === $repeat)) {
+        $err = true;
+        $msg .= 'Passwords must match.\n';
+    }
+    if (!filter_var($rent, FILTER_VALIDATE_INT, array("options"=>array("min_range"=>1)))) {
+        $err = true;
+        $msg .= 'Rent must be a positive, whole number.\n';
+    }
+
+    if ($err) {
+        return $msg;
+    }
+}
 ?>

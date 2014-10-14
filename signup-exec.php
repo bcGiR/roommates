@@ -4,7 +4,7 @@ require('validate.php');
 
 if (isset($_POST['username'])) {
     // checks for errors in input fields
-    $error = validateUser();
+    $error = validateCreateUser();
 
     // add user to database
     if (!$error) {
