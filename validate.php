@@ -1,24 +1,34 @@
 <?php
 // validates user fields, if error returns a message
 function validateUser() {
-    $err = false;
-    $msg = "Sign up failed. ";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $repeat = $_POST['repeat_password'];
+    $email = $_POST['email'];
+    $check = mysql_num_rows(getUserByName($username));
 
-    if ($_POST['username'] === "") {
+    $err = false;
+    $msg = 'Sign up failed.\n';
+
+    if (strlen($username) < 4) {
         $err = true;
-        $msg .= "Username required. ";
+        $msg .= 'Username must be at least 4 characters long.\n';
     }
-    if ($_POST['password'] === "") {
+    if ($check > 0) {
         $err = true;
-        $msg .= "Password required. ";
+        $msg .= 'That username already exists.\n';
     }
-    if (!($_POST['password'] === $_POST['repeat_password'])) {
+    if (strlen($password) < 6) {
         $err = true;
-        $msg .= "Passwords must match ";
+        $msg .= 'Password must be at least 6 characters long.\n';
     }
-    if ($_POST['email'] === "") {
+    if (!($password === $repeat)) {
         $err = true;
-        $msg .= "Email required. ";
+        $msg .= 'Passwords must match.\n';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $err = true;
+        $msg .= 'Email Invalid.\n';
     }
 
     if ($err) {
@@ -27,4 +37,5 @@ function validateUser() {
 }
 
 // validates house fields, if error returns a message
+
 ?>
