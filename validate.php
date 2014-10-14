@@ -36,6 +36,28 @@ function validateCreateUser() {
     }
 }
 
+// validates user login, if error returns message
+function validateUserLogin() {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $err = false;
+    $msg = 'Log in failed.\n';
+
+    if (strlen($username) < 1) {
+        $err = true;
+        $msg .= 'Username required.\n';
+    }
+    if (strlen($password) < 1) {
+        $err = true;
+        $msg .= 'Password required.\n';
+    }
+
+    if ($err) {
+        return $msg;
+    }
+}
+
 // validates house fields, if error returns a message
 function validateCreateHouse() {
     $housename = $_POST['house_name'];

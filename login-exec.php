@@ -1,19 +1,10 @@
 <?php
 require('dbadapter.php');
+require('validate.php');
 if (isset($_POST['username'])) {
-    $verified = true;
-    $error = "Login Failed. ";
+    $error = validateUserLogin();
 
-    if ($_POST['username'] === "") {
-        $verified = false;
-        $error .= "Username required. ";
-    }
-    if ($_POST['password'] === "") {
-        $verified = false;
-        $error .= "Password required. ";
-    }
-
-    if ($verified) {
+    if (!$error) {
         $username = $_POST['username'];
 
         $result = getUserByName($username);
