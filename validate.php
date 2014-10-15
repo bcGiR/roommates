@@ -89,4 +89,5 @@ function validateCreateHouse() {
         return $msg;
     }
 }
+
 ?>
