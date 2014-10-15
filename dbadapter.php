@@ -1,6 +1,9 @@
 <?php
 require('connect.php');
 
+$QUERY_SUCCESSFUL_KEY = 1;
+$QUERY_UNSUCCESSFUL_KEY = 0;
+
 /************************
  * CREATE TABLE METHODS *
  ************************/
@@ -147,7 +150,7 @@ function userActive($username) {
 
 // deactivate user
 function userInactive($username) {
-    $query = "UPDATE `users` SET active=1 WHERE username='$username'";
+    $query = "UPDATE `users` SET active=0 WHERE username='$username'";
     return mysql_query($query) or die(mysql_error());
 }
 

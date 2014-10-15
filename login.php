@@ -9,4 +9,5 @@
     Password: <input name="password" type="password"><br>
     <input type="submit" value="Log In">
 </form>
+<a href="http://localhost/mates/">Home</a>
 <?php include_once('footer.php');

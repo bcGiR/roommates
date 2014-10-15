@@ -4,6 +4,7 @@ require('auth.php');
 require('create-exec.php');
 include_once('header.php');
 ?>
+    <h2>Create a house for <?php echo $username; ?></h2>
 <form action="" method="post">
 House Name: <input name="house_name" type="text"><br>
 Monthly Rent: <input name="rent" type="text"><br>

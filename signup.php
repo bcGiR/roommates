@@ -11,4 +11,5 @@
     Repeat Password: <input name="repeat_password" type="password"><br>
 <input type="submit" value="Sign Up">
 </form>
+<a href="http://localhost/mates/">Home</a>
 <?php include_once('footer.php'); ?>
