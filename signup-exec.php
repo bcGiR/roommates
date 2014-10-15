@@ -7,20 +7,20 @@ if (isset($_POST['username'])) {
     $error = validateCreateUser();
 
     // add user to database
-    if (!$error) {
+    if (!$error) { // validation successful
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $result = createUser($username,$password,$email);
-        if ($result) {
+        if ($result) { // user creation successful
             $message = "User Created Successfully";
             echo "<script type='text/javascript'>alert('$message'); window.location.href = 'http://localhost/mates/login.php';</script>";
-        } else {
+        } else { // user creation unsuccessful
             $message = "Sorry, there was an unexpected error. Please try again.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-    } else {
+    } else { // form invalid
         echo "<script type='text/javascript'>alert('$error');</script>";
     }
 }

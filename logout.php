@@ -1,6 +1,6 @@
 <?php
-session_start();
 require('connect.php');
+require('auth.php');
 require('logout-exec.php');
 include_once('header.php');
 ?>

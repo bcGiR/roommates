@@ -1,5 +1,5 @@
 <?php
 require('dbadapter.php');
-$result = userInactive();
+userInactive($username); // update user status to inactive
 session_destroy();
 ?>
