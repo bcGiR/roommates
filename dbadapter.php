@@ -91,10 +91,11 @@ function createUser($username,$password,$email) {
     return mysql_query($query) or die(mysql_error());
 }
 
-// create a new house
+// create a new house and return the house_id
 function createHouse($housename,$password,$rent) {
-    $query = "INSERT INTO `houses` (housename, house_password, rent) VALUES ('$housename', '$password', '$rent')";
-    return mysql_query($query) or die(mysql_error());
+    $query = "INSERT INTO `houses` (housename, house_password, rent) VALUES ('$housename', '$password', '$rent');";
+    mysql_query($query) or die(mysql_error());
+    return mysql_insert_id();
 }
 
 // create a new bill
@@ -136,6 +137,7 @@ function getUserByName($username) {
 function getHouseByID($houseId) {
     $query = "SELECT * FROM `houses` WHERE house_id='$houseId'";
     $result = mysql_query($query) or die(mysql_error());
+    return $result;
 }
 
 /******************

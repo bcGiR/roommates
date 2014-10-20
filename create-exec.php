@@ -11,6 +11,8 @@ if (isset($_POST['house_name'])) {
         $house_password = password_hash($_POST['house_password'], PASSWORD_DEFAULT);
 
         $result = createHouse($house_name, $house_password, $rent);
+        setUserHouse($username, $result); // sets the users house to the newly created one
+
         if ($result) { // house created successfully
             $message = "House $house_name created successfully!";
             echo "<script type='text/javascript'>alert('$message'); window.location.href = 'http://localhost/mates/home.php';</script>";
