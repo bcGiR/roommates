@@ -154,6 +154,12 @@ function userInactive($username) {
     return mysql_query($query) or die(mysql_error());
 }
 
+// set users house
+function setUserHouse($username, $houseId) {
+    $query = "UPDATE `users` SET house_id='$houseId' WHERE username='$username'";
+    return mysql_query($query) or die(mysql_error());
+}
+
 /******************
  * DELETE METHODS *
  ******************/

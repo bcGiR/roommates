@@ -58,7 +58,7 @@ function validateUserLogin() {
     }
 }
 
-// validates house fields, if error returns a message
+// validates create house fields, if error returns a message
 function validateCreateHouse() {
     $housename = $_POST['house_name'];
     $rent = $_POST['rent'];
@@ -90,4 +90,5 @@ function validateCreateHouse() {
     }
 }
 
+// validates create room fields, if error returns a message
 ?>
