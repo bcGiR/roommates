@@ -1,4 +1,5 @@
 <?php
+require('dbadapter.php');
 // validates user fields, if error returns a message
 function validateCreateUser() {
     $username = $_POST['username'];
@@ -91,4 +92,19 @@ function validateCreateHouse() {
 }
 
 // validates create room fields, if error returns a message
+function validateCreateRoom() {
+    $size = $_POST['size'];
+
+    $err = false;
+    $msg = 'Room creation failed.\n';
+
+    if (!filter_var($size, FILTER_VALIDATE_INT, array("options"=>array("min_range"=>1)))) {
+        $err = true;
+        $msg .= 'Size must be a positive, whole number.\n';
+    }
+
+    if ($err) {
+        return $msg;
+    }
+}
 ?>
