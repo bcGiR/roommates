@@ -19,4 +19,5 @@ include_once('header.php');
     echo "<p>Your house is $houseSqft sq. ft. in size</p>";
 } ?>
 <p>Your rent is <?php echo $houseRent ?></p>
+<a href="http://localhost/mates/home.php">Home</a>
 <?php include_once('footer.php'); ?>

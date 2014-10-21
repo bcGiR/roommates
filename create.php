@@ -12,4 +12,5 @@ House Password: <input name="house_password" type="password"><br>
 Repeat House Password: <input name="repeat_house_password" type="password"><br>
 <input type="submit" value="Create House">
 </form>
+<a href="http://localhost/mates/home.php">Home</a>
 <?php include_once('footer.php'); ?>
