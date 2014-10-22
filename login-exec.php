@@ -11,7 +11,7 @@ if (isset($_POST['username'])) {
         $result = getUserByName($username);
         $count = mysql_num_rows($result);
 
-        if ($count === 1){ // user exists
+        if ($count === 1) { // user exists
             $row = mysql_fetch_row($result);
 
             if (password_verify($_POST['password'], $row[3])) { // password verified
